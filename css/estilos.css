@@ -1,0 +1,83 @@
+
+/* ESTILOS GENERALES */
+
+body {
+    background-color: #F5F3FF;
+    color: #171324;
+    font-family: Arial, sans-serif;
+}
+
+
+/* ENCABEZADO */
+
+header {
+    background-color: #FCFBFF;
+    border-bottom: 1px solid #CFC9E9;
+}
+
+header h1 {
+    color: #8001FF;
+    font-size: 28px;
+}
+
+header nav a {
+    color: #171324;
+    text-decoration: none;
+}
+
+header nav a:hover {
+    color: #8001FF;
+}
+
+
+/* SECCIÓN DE BIENVENIDA */
+
+section {
+    color: #171324;
+}
+
+section h2 {
+    color: #8001FF;
+}
+
+
+/* TARJETAS */
+
+.card {
+    background-color: #FCFBFF;
+    border: 1px solid #CFC9E9;
+    color: #171324;
+}
+
+.card-title {
+    color: #8001FF;
+}
+
+
+/* BOTONES */
+
+.btn-primary {
+    background-color: #8001FF;
+    border-color: #8001FF;
+}
+
+.btn-primary:hover {
+    background-color: #7662B0;
+    border-color: #7662B0;
+}
+
+
+/* PIE DE PÁGINA */
+
+footer {
+    border-top: 1px solid #CFC9E9;
+}
+
+footer a {
+    color: #8001FF;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #7662B0;
+}
