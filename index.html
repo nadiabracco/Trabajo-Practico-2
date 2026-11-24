@@ -4,64 +4,210 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gorillaz | Archivo digital intervenido</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-yEPZ7jP9S0QKiUQ0m3jjsO4ProIW7wvR9gXkI7JOGa2XVsw53Yke2bsdkBbjmmiX" crossorigin="anonymous">
-    <!-- Nuestro CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
+
+    <!-- ENCABEZADO -->
     <header>
-        <h1>GORILLAZ- Logo</h1> <!-- agregar logo intervenido-->
-        <nav >
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="personajes.html">Personajes</a></li>
-                <li><a href="historia1.html">Historia 1</a></li>
-                <li><a href="historia2.html">Historia 2</a></li>
-                <li><a href="historia3.html">Historia 3</a></li>
-                <li><a href="musica.html">Música</a></li>
-                <li><a href="archivovisual.html">Archivo visual</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-                <li><a href="creditos.html">Créditos</a></li>
-            </ul>
-        </nav>
+        <div class="container d-flex justify-content-between align-items-center py-3">
+            <!-- container: centra y limita el ancho -->
+            <!-- d-flex: organiza los elementos con Flexbox -->
+            <!-- justify-content-between: separa los elementos hacia los extremos -->
+            <!-- align-items-center: los alinea verticalmente al centro -->
+            <!-- py-3: agrega espacio interno arriba y abajo -->
+
+            <!-- Logo -->
+            <a href="index.html" class="text-decoration-none">
+                <!-- text-decoration-none: quita el subrayado del enlace -->
+                <h1 class="m-0">GORILLAZ - Logo</h1>
+                <!-- m-0: elimina el margen del título -->
+            </a>
+
+            <!-- Menú de navegación -->
+            <nav>
+                <ul class="nav">
+                    <!-- nav: organiza los enlaces como menú de navegación -->
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                        <!-- nav-link: da formato al enlace del menú -->
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="personajes.html">Personajes</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="historia1.html">Historia 1</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="historia2.html">Historia 2</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="historia3.html">Historia 3</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="musica.html">Música</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="archivovisual.html">Archivo visual</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html">Contacto</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="creditos.html">Créditos</a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
     </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
     <main>
-        <section>
-            <p>ARCHIVO 001 / KONG STUDIOS</p>
-            <p>
-                Este archivo digital intervenido reúne distintas
-                dimensiones del universo de Gorillaz, desde su
-                historia ficticia y sus personajes hasta su música
-                y sus producciones visuales.
-            </p>
-            <!-- agregar imagen de collage-->
-        </section>
-        <section>
-            <h2>Explorá el archivo</h2>
-            <article>
-                <h3>Universo Gorillaz</h3>
-                <p>Conocé a sus personajes y explorá su historia ficticia.</p>
-                <a href="personajes.html">Explorar</a>
-            </article>
 
-            <article>
-                <h3>Música y colaboraciones</h3>
-                <p>Recorré sus álbumes y colaboraciones musicales.</p>
-                <a href="musica.html">Explorar</a>
-            </article>
+        <!-- SECCIÓN DE BIENVENIDA -->
+        <section class="container py-5">
+            <!-- container: centra y limita el ancho -->
+            <!-- py-5: agrega espacio interno arriba y abajo -->
 
-            <article>
-                <h3>Imagen y animación</h3>
-                <p>Descubrí sus ilustraciones, diseños y animaciones.</p>
-                <a href="archivovisual.html">Explorar</a>
-            </article>
+            <div class="row align-items-center g-4">
+                <!-- row: crea una fila para organizar columnas -->
+                <!-- align-items-center: centra verticalmente el contenido -->
+                <!-- g-4: agrega separación entre columnas -->
+
+                <div class="col-md-6">
+                    <!-- col-md-6: ocupa la mitad del ancho desde pantallas medianas -->
+
+                    <p>ARCHIVO 001 / KONG STUDIOS</p>
+
+                    <h2>Bienvenidos al archivo</h2>
+
+                    <p>
+                        Este archivo digital intervenido reúne distintas
+                        dimensiones del universo de Gorillaz, desde su
+                        historia ficticia y sus personajes hasta su música
+                        y sus producciones visuales.
+                    </p>
+                </div>
+
+                <div class="col-md-6">
+                    <!-- col-md-6: ocupa la otra mitad del ancho -->
+                    <!-- Agregar imagen de collage -->
+                </div>
+
+            </div>
         </section>
+
+        <!-- SECCIONES DEL ARCHIVO -->
+        <section class="container py-5">
+            <!-- container: centra y limita el ancho -->
+            <!-- py-5: agrega espacio interno arriba y abajo -->
+
+            <h2 class="text-center mb-4">
+                <!-- text-center: centra el texto -->
+                <!-- mb-4: agrega margen inferior -->
+                Explorá el archivo
+            </h2>
+
+            <div class="row g-4">
+                <!-- row: crea una fila -->
+                <!-- g-4: agrega separación entre las tarjetas -->
+
+                <div class="col-md-4">
+                    <!-- col-md-4: ocupa un tercio del ancho desde pantallas medianas -->
+
+                    <article class="card h-100">
+                        <!-- card: crea una tarjeta -->
+                        <!-- h-100: hace que ocupe el 100% de la altura disponible -->
+
+                        <div class="card-body">
+                            <!-- card-body: organiza el contenido interno de la tarjeta -->
+
+                            <h3 class="card-title">Universo Gorillaz</h3>
+                            <!-- card-title: da formato al título de la tarjeta -->
+
+                            <p class="card-text">
+                                Conocé a sus personajes y explorá su historia ficticia.
+                            </p>
+                            <!-- card-text: da formato al texto de la tarjeta -->
+
+                            <a href="personajes.html" class="btn btn-primary">
+                                Explorar
+                            </a>
+                            <!-- btn: da formato de botón al enlace -->
+                            <!-- btn-primary: aplica el estilo principal de Bootstrap -->
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-md-4">
+                    <!-- col-md-4: ocupa un tercio del ancho -->
+
+                    <article class="card h-100">
+                        <div class="card-body">
+
+                            <h3 class="card-title">Música y colaboraciones</h3>
+
+                            <p class="card-text">
+                                Recorré sus álbumes y colaboraciones musicales.
+                            </p>
+
+                            <a href="musica.html" class="btn btn-primary">
+                                Explorar
+                            </a>
+
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-md-4">
+                    <!-- col-md-4: ocupa un tercio del ancho -->
+
+                    <article class="card h-100">
+                        <div class="card-body">
+
+                            <h3 class="card-title">Imagen y animación</h3>
+
+                            <p class="card-text">
+                                Descubrí sus ilustraciones, diseños y animaciones.
+                            </p>
+
+                            <a href="archivovisual.html" class="btn btn-primary">
+                                Explorar
+                            </a>
+
+                        </div>
+                    </article>
+                </div>
+
+            </div>
+        </section>
+
     </main>
-    <footer>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="container py-4">
+        <!-- container: centra y limita el ancho -->
+        <!-- py-4: agrega espacio interno arriba y abajo -->
+
         <p>Proyecto académico — Informática General 2026</p>
         <a href="creditos.html">Créditos</a>
     </footer>
+
+    <!-- Nuestro JavaScript -->
     <script src="js/principal.js"></script>
+
 </body>
 </html>
+
+
