@@ -22,9 +22,9 @@ header {
 }
 
 /* LOGO */
-.navbar-brand h1 {
-    color: #8001FF;
-    font-size: 28px;
+.logo {
+    width: 200px;
+    height: auto;
 }
 
 /* ENLACES DEL MENÚ */
