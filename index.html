@@ -9,35 +9,98 @@
 </head>
 <body>
 
-    <!-- ENCABEZADO -->
-    <header>
-        <div class="container d-flex justify-content-between align-items-center py-4">
-            <!-- container: centra y limita el ancho -->
-            <!-- d-flex: organiza los elementos con Flexbox -->
-            <!-- justify-content-between: separa los elementos hacia los extremos -->
-            <!-- align-items-center: los alinea verticalmente al centro -->
+    
+<!-- ENCABEZADO -->
+<header>
+    <nav class="navbar navbar-expand-lg">
+        <!-- navbar: define la barra de navegación de Bootstrap -->
+        <!-- navbar-expand-lg: muestra el menú completo en pantallas grandes y lo convierte en hamburguesa en pantallas más chicas -->
+
+        <div class="container py-4">
+            <!-- container: centra y limita el ancho del contenido -->
             <!-- py-4: agrega espacio interno arriba y abajo -->
 
             <!-- Logo -->
-            <a href="index.html" class="text-decoration-none"> <!-- text-decoration-none: quita el subrayado del enlace -->
-                <h1 class="m-0">GORILLAZ - Logo</h1> <!-- m-0: elimina el margen del título -->
+            <a href="index.html" class="navbar-brand text-decoration-none">
+                <!-- navbar-brand: identifica el logo o nombre del sitio dentro de la navegación -->
+                <!-- text-decoration-none: quita el subrayado del enlace -->
+
+                <h1 class="m-0">GORILLAZ - Logo</h1>
+                <!-- m-0: elimina el margen del título -->
             </a>
+
+            <!-- Botón del menú hamburguesa -->
+            <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#menuPrincipal"
+                aria-controls="menuPrincipal"
+                aria-expanded="false"
+                aria-label="Abrir menú">
+                <!-- navbar-toggler: aplica el estilo de Bootstrap al botón hamburguesa -->
+                <!-- type="button": indica que es un botón común y no uno que envía formularios -->
+                <!-- data-bs-toggle="collapse": indica que el botón abre y cierra un elemento desplegable -->
+                <!-- data-bs-target: indica qué elemento HTML controla el botón -->
+                <!-- aria-controls: identifica el menú que controla el botón -->
+                <!-- aria-expanded: indica si el menú está abierto (true) o cerrado (false) -->
+                <!-- aria-label: describe la función del botón para lectores de pantalla -->
+
+                <span class="navbar-toggler-icon"></span>
+                <!-- navbar-toggler-icon: muestra el ícono de las tres líneas del menú hamburguesa -->
+            </button>
+
             <!-- Menú de navegación -->
-            <nav class="menu">
-                <ul>
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="personajes.html">Personajes</a></li>
-                    <li><a href="historia1.html">Historia 1</a></li>
-                    <li><a href="historia2.html">Historia 2</a></li>
-                    <li><a href="historia3.html">Historia 3</a></li>
-                    <li><a href="musica.html">Música</a></li>
-                    <li><a href="archivovisual.html">Archivo visual</a></li>
-                    <li><a href="contacto.html">Contacto</a></li>
-                    <li><a href="creditos.html">Créditos</a></li>
+            <div class="collapse navbar-collapse" id="menuPrincipal">
+                <!-- collapse: permite ocultar y mostrar el menú -->
+                <!-- navbar-collapse: adapta la disposición del menú al comportamiento de Navbar -->
+                <!-- id="menuPrincipal": identifica el menú para que el botón pueda controlarlo -->
+
+                <ul class="navbar-nav ms-auto">
+                    <!-- navbar-nav: organiza los enlaces como elementos de navegación -->
+                    <!-- ms-auto: empuja el menú hacia la derecha -->
+
+                    <li class="nav-item">
+                        <!-- nav-item: identifica cada elemento del menú -->
+                        <a class="nav-link" href="index.html">Inicio</a>
+                        <!-- nav-link: aplica los estilos de Bootstrap a cada enlace -->
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="personajes.html">Personajes</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="historia1.html">Historia 1</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="historia2.html">Historia 2</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="historia3.html">Historia 3</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="musica.html">Música</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="archivovisual.html">Archivo visual</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html">Contacto</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="creditos.html">Créditos</a>
+                    </li>
                 </ul>
-            </nav>
+            </div>
         </div>
-    </header>
+    </nav>
+</header>
+
     <!-- CONTENIDO PRINCIPAL -->
     <main>
         <!-- SECCIÓN DE BIENVENIDA -->
@@ -150,7 +213,7 @@
         <p>Proyecto académico — Informática General 2026</p>
         <a href="creditos.html">Créditos</a>
     </footer>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Nuestro JavaScript -->
     <script src="js/principal.js"></script>
 

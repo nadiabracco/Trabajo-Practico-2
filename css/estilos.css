@@ -15,35 +15,35 @@ body {
     color: #171324;
     font-family: Arial, sans-serif;
 }
-
 /* ENCABEZADO */
 header {
     background-color: #FCFBFF;
     border-bottom: 1px solid #CFC9E9;
 }
 
-header h1 {
+/* LOGO */
+.navbar-brand h1 {
     color: #8001FF;
     font-size: 28px;
 }
 
-/* MENÚ DE NAVEGACIÓN */
-.menu ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px 18px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.menu a {
+/* ENLACES DEL MENÚ */
+.navbar-nav .nav-link {
     color: #171324;
-    text-decoration: none;
 }
 
-.menu a:hover {
+.navbar-nav .nav-link:hover {
     color: #8001FF;
+}
+
+/* BOTÓN HAMBURGUESA */
+.navbar-toggler {
+    border-color: #CFC9E9;
+}
+
+/* COLOR DEL ÍCONO HAMBURGUESA */
+.navbar-toggler-icon {
+    filter: invert(20%) sepia(90%) saturate(6000%) hue-rotate(260deg);
 }
 
 /* SECCIÓN DE BIENVENIDA */
