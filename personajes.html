@@ -1,162 +1,254 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gorillaz | Archivo digital intervenido</title>
+
+    <title>Personajes | Archivo digital intervenido</title>
+
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- CSS propio -->
     <link rel="stylesheet" href="css/estilos.css">
 </head>
+
 <body>
 
-    
-<!-- ENCABEZADO -->
-<header>
-    <nav class="navbar navbar-expand-lg">
-        <!-- navbar: define la barra de navegación de Bootstrap -->
-        <!-- navbar-expand-lg: muestra el menú completo en pantallas grandes y lo convierte en hamburguesa en pantallas más chicas -->
+    <!-- ENCABEZADO -->
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container py-4">
 
-        <div class="container py-4">
-            <!-- container: centra y limita el ancho del contenido -->
-            <!-- py-4: agrega espacio interno arriba y abajo -->
+                <a href="index.html" class="navbar-brand text-decoration-none">
+                    <img src="imagenes/logo.png" alt="Gorillaz - Inicio" class="logo">
+                </a>
 
-            <!-- Logo -->
-            <a href="index.html" class="navbar-brand text-decoration-none">
-                <!-- navbar-brand: identifica el logo o nombre del sitio dentro de la navegación -->
-                <!-- text-decoration-none: quita el subrayado del enlace -->
-                 <img src="imagenes/logo.png" alt="logo de gorillaz" class="logo">
-            </a>
+                <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#menuPrincipal"
+                    aria-controls="menuPrincipal"
+                    aria-expanded="false"
+                    aria-label="Abrir menú">
 
-            <!-- Botón del menú hamburguesa -->
-            <button class="navbar-toggler" type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#menuPrincipal"
-                aria-controls="menuPrincipal"
-                aria-expanded="false"
-                aria-label="Abrir menú">
-                <!-- navbar-toggler: aplica el estilo de Bootstrap al botón hamburguesa -->
-                <!-- data-bs-toggle="collapse": indica que el botón abre y cierra un elemento desplegable -->
-                <!-- data-bs-target: indica qué elemento HTML controla el botón -->
-                <!-- aria-controls: identifica el menú que controla el botón -->
-                <!-- aria-expanded: indica si el menú está abierto (true) o cerrado (false) -->
-                <!-- aria-label: describe la función del botón para lectores de pantalla -->
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-                <span class="navbar-toggler-icon"></span>
-                <!-- navbar-toggler-icon: muestra el ícono de las tres líneas del menú hamburguesa -->
-            </button>
+                <div class="collapse navbar-collapse" id="menuPrincipal">
+                    <ul class="navbar-nav ms-auto">
 
-            <!-- Menú de navegación -->
-            <div class="collapse navbar-collapse" id="menuPrincipal">
-                <!-- collapse: permite ocultar y mostrar el menú -->
-                <!-- navbar-collapse: adapta la disposición del menú al comportamiento de Navbar -->
-                <!-- id="menuPrincipal": identifica el menú para que el botón pueda controlarlo -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Inicio</a>
+                        </li>
 
-                <ul class="navbar-nav ms-auto">
-                    <!-- navbar-nav: organiza los enlaces como elementos de navegación -->
-                    <!-- ms-auto: empuja el menú hacia la derecha -->
+                        <li class="nav-item">
+                            <a class="nav-link active" href="personajes.html">Personajes</a>
+                        </li>
 
-                    <li class="nav-item">
-                        <!-- nav-item: identifica cada elemento del menú -->
-                        <a class="nav-link" href="index.html">Inicio</a>
-                        <!-- nav-link: aplica los estilos de Bootstrap a cada enlace -->
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="historia1.html">Historia 1</a>
+                        </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="personajes.html">Personajes</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="historia2.html">Historia 2</a>
+                        </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="historia1.html">Historia 1</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="historia3.html">Historia 3</a>
+                        </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="historia2.html">Historia 2</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="musica.html">Música</a>
+                        </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="historia3.html">Historia 3</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="archivovisual.html">Archivo visual</a>
+                        </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="musica.html">Música</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contacto.html">Contacto</a>
+                        </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="archivovisual.html">Archivo visual</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="creditos.html">Créditos</a>
+                        </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="contacto.html">Contacto</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="creditos.html">Créditos</a>
-                    </li>
-                </ul>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
-</header>
-      <main>
-        <!-- PRESENTACION DE LA SECCION -->
-        <section>
-            <h2>Los integrantes</h2>
+        </nav>
+    </header>
+
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="container py-5">
+
+        <!-- PRESENTACIÓN -->
+        <section class="personajes-intro mb-5">
+
+            <p>ARCHIVO 002 / INTEGRANTES</p>
+
+            <h1>Los integrantes</h1>
+
             <p>
-                Cuatro personajes que dan vida al universo
-                musical de Gorillaz.
+                Cuatro personalidades muy diferentes forman parte de Gorillaz.
+                Cada integrante tiene su propia historia, una identidad particular
+                y un papel dentro de la banda. Conocé a los personajes que dan
+                vida a este universo ficticio.
             </p>
+
         </section>
 
-        <!-- PERSONAJE 1 -->
-        <section class="ficha-personaje" id="dosd">
-            <img src="imagenes/2d.jpeg" alt="Personaje 2-D">
 
-            <h3>2-D</h3>
-            <p>Nombre real: Stuart Harold</p>
-            <p>Personalidad:amable, distraído, ingenuo y algo despistado.</p>
-            <p>Características físicas: alto y delgado, cabello azul y ojos negros</p>
-            <p>Instrumento y función: vocalista principal, tecladista y ocasionalmente pianista </p>
+        <!-- FICHA DE 2-D -->
+        <section class="ficha-personaje mb-5">
+
+            <div class="row align-items-stretch g-0">
+
+                <div class="col-md-6">
+                    <img src="imagenes/2d.jpg"
+                         alt="2-D, vocalista de Gorillaz"
+                         class="personaje-imagen">
+                </div>
+
+                <div class="col-md-6">
+                    <div class="personaje-info">
+
+                        <p>ARCHIVO 001 / VOCALISTA</p>
+
+                        <h2>2-D</h2>
+
+                        <p><strong>Nombre real:</strong> Stuart Pot.</p>
+
+                        <p><strong>Personalidad:</strong> Amable, distraído, ingenuo y algo despistado.</p>
+
+                        <p><strong>Características:</strong> Alto y delgado, con cabello azul y ojos negros.</p>
+
+                        <p><strong>Rol en la banda:</strong> Vocalista principal y tecladista. También toca el piano ocasionalmente.</p>
+
+                    </div>
+                </div>
+
+            </div>
         </section>
 
-        <!-- PERSONAJE 2 -->
-        <section class="ficha-personaje" id="murdoc">
-            <img src="imagenes/murdoc.jpeg" alt="Personaje Murdoc">
 
-            <h3>Murdoc </h3>
-            <p>Nombre real: Murdoc Fausto Niccals</p>
-            <p>Personalidad:orgulloso, arrogante, sarcástico, provocador y egocéntrico.</p>
-            <p>Características físicas: piel verdosa, nariz torcida, dientes afilados y sonrisa amplia.</p>
-            <p>Instrumento y función: bajista. fundador y líder autoproclamado de Gorillaz. Participa en la dirección musical y aporta una estética oscura y provocadora.</p>
+        <!-- FICHA DE MURDOC -->
+        <section class="ficha-personaje mb-5">
+
+            <div class="row align-items-stretch g-0">
+
+                <div class="col-md-6 order-md-2">
+                    <img src="imagenes/murdoc.jpg"
+                         alt="Murdoc Niccals, bajista de Gorillaz"
+                         class="personaje-imagen">
+                </div>
+
+                <div class="col-md-6 order-md-1">
+                    <div class="personaje-info">
+
+                        <p>ARCHIVO 002 / BAJISTA</p>
+
+                        <h2>Murdoc Niccals</h2>
+
+                        <p><strong>Nombre real:</strong> Murdoc Fausto Niccals.</p>
+
+                        <p><strong>Personalidad:</strong> Arrogante, sarcástico, provocador y egocéntrico.</p>
+
+                        <p><strong>Características:</strong> Piel verdosa, nariz torcida, dientes afilados y una sonrisa amplia.</p>
+
+                        <p><strong>Rol en la banda:</strong> Bajista, fundador y autoproclamado líder de Gorillaz.</p>
+
+                    </div>
+                </div>
+
+            </div>
         </section>
 
-        <!-- PERSONAJE 3 -->
-        <section class="ficha-personaje" id="noodle">
-            <img src="imagenes/noodle.jpeg" alt="Personaje Noodle">
 
-            <h3>Noodle</h3>
-            <p>Nombre: Noodle</p>
-            <p>Personalidad:reservada, independiente, alegre y reflexiva. También se caracteriza por su valentía y determinación.</p>
-            <p>Características físicas: mujer japonesa de baja estatura, cabello oscuro y corto y ojos negros almendrados.</p>
-            <p>Instrumento y función: guitarrista, corista y ocasionalmente tecladista.</p>
+        <!-- FICHA DE NOODLE -->
+        <section class="ficha-personaje mb-5">
+
+            <div class="row align-items-stretch g-0">
+
+                <div class="col-md-6">
+                    <img src="imagenes/noodle.jpg"
+                         alt="Noodle, guitarrista de Gorillaz"
+                         class="personaje-imagen">
+                </div>
+
+                <div class="col-md-6">
+                    <div class="personaje-info">
+
+                        <p>ARCHIVO 003 / GUITARRISTA</p>
+
+                        <h2>Noodle</h2>
+
+                        <p><strong>Nombre real:</strong> Noodle.</p>
+
+                        <p><strong>Personalidad:</strong> Reservada, independiente, alegre, reflexiva y decidida.</p>
+
+                        <p><strong>Características:</strong> De origen japonés, cabello oscuro y ojos negros almendrados.</p>
+
+                        <p><strong>Rol en la banda:</strong> Guitarrista, corista y tecladista ocasional.</p>
+
+                    </div>
+                </div>
+
+            </div>
         </section>
 
-        <!-- PERSONAJE 4 -->
-        <section class="ficha-personaje" id="russel">
-            <img src="imagenes/Russel.jpeg" alt="Personaje Russel">
 
-            <h3>Russel</h3>
-            <p>Nombre real: Russel Hobbs </p>
-            <p>Personalidad: maduro, tranquilo, educado, amable y protector.</p>
-            <p>Características físicas: corpulento, de gran estatura, piel oscura y cabeza rapada.</p>
-            <p>Instrumento y función: baterista y percusionista.Aporta las bases rítmicas y las influencias del hip-hop. También representa una figura de apoyo y protección para sus compañeros.</p>
+        <!-- FICHA DE RUSSEL -->
+        <section class="ficha-personaje mb-5">
+
+            <div class="row align-items-stretch g-0">
+
+                <div class="col-md-6 order-md-2">
+                    <img src="imagenes/russel.jpg"
+                         alt="Russel Hobbs, baterista de Gorillaz"
+                         class="personaje-imagen">
+                </div>
+
+                <div class="col-md-6 order-md-1">
+                    <div class="personaje-info">
+
+                        <p>ARCHIVO 004 / BATERISTA</p>
+
+                        <h2>Russel Hobbs</h2>
+
+                        <p><strong>Nombre real:</strong> Russel Hobbs.</p>
+
+                        <p><strong>Personalidad:</strong> Maduro, tranquilo, amable, educado y protector.</p>
+
+                        <p><strong>Características:</strong> De gran contextura física, piel oscura y cabeza rapada.</p>
+
+                        <p><strong>Rol en la banda:</strong> Baterista y percusionista. Aporta una fuerte influencia del hip-hop.</p>
+
+                    </div>
+                </div>
+
+            </div>
         </section>
 
     </main>
 
-    <!-- PIE DE PAGINA -->
+
+    <!-- PIE DE PÁGINA -->
     <footer>
-        <p>Proyecto académico - Informática General 2026</p>
+        <div class="container py-4 text-center">
+
+            <p>Archivo digital intervenido de Gorillaz</p>
+
+            <a href="creditos.html">Créditos</a>
+
+        </div>
     </footer>
- <script src="js.js"></script>
+
+
+    <!-- JAVASCRIPT DE BOOTSTRAP -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
