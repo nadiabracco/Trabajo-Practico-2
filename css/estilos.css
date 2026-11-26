@@ -1,11 +1,13 @@
+
 /* PALETA DE COLORES
-Color principal  (#8001FF) 
-Fondo (#F5F3FF) 
-surface (superficie) color que queremos diferenciar del fondo general (#FCFBFF) 
-Bordes y detalles decorativos  (#CFC9E9) 
-Texto (#171324) 
-Elementos interactivos (#7662B0) 
+Color principal (#8001FF)
+Fondo (#F5F3FF)
+Surface (#FCFBFF)
+Bordes y detalles decorativos (#CFC9E9)
+Texto (#171324)
+Elementos interactivos (#7662B0)
 */
+
 /* ESTILOS GENERALES */
 body {
     background-color: #F5F3FF;
@@ -46,19 +48,38 @@ header {
 
 /* SECCIÓN DE BIENVENIDA */
 .bienvenida {
-    padding-top: 80px;
-    padding-bottom: 80px;
+    position: relative;
+    width: 100%;
+    background-color: #171324;
 }
 
+/* IMAGEN DE BIENVENIDA */
+.bienvenida-imagen {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* TEXTO DE BIENVENIDA */
+.bienvenida-texto {
+    position: absolute;
+    top: 35%;
+    left: 8%;
+    width: 35%;
+    color: #FCFBFF;
+}
+
+/* TÍTULO DE BIENVENIDA */
+.bienvenida-texto h2 {
+    color: #FCFBFF;
+}
+
+/* COLOR GENERAL DE LAS SECCIONES */
 section {
     color: #171324;
 }
 
-section h2 {
-    color: #8001FF;
-}
-
-/* TÍTULOS (mismo violeta en todas las páginas) */
+/* TÍTULOS */
 h1, h2 {
     color: #8001FF;
 }
@@ -98,14 +119,14 @@ h1, h2 {
     color: #171324;
 }
 
-/* Campo seleccionado (por defecto Bootstrap lo pone azul) */
+/* CAMPO SELECCIONADO */
 .form-control:focus,
 .form-select:focus {
     border-color: #8001FF;
     box-shadow: 0 0 0 0.25rem rgba(128, 1, 255, 0.25);
 }
 
-/* Casillas tildadas (por defecto son azules) */
+/* CASILLAS TILDADAS */
 .form-check-input:checked {
     background-color: #8001FF;
     border-color: #8001FF;
@@ -128,4 +149,43 @@ footer a {
 
 footer a:hover {
     color: #7662B0;
+}
+
+
+/* ADAPTACIÓN DE BIENVENIDA PARA CELULARES */
+@media (max-width: 767px) {
+
+    /* Ocultar el collage */
+    .bienvenida-imagen {
+        display: none;
+    }
+
+    /* Sección de bienvenida */
+    .bienvenida {
+        min-height: auto;
+        padding: 60px 24px;
+        background-color: #171324;
+    }
+
+    /* Texto */
+    .bienvenida-texto {
+        position: static;
+        transform: none;
+        width: 100%;
+        padding: 0;
+        color: #FCFBFF;
+    }
+
+    /* Título */
+    .bienvenida-texto h2 {
+        font-size: 28px;
+        color: #FCFBFF;
+    }
+
+    /* Párrafos */
+    .bienvenida-texto p {
+        font-size: 15px;
+    }
+
+}
 }
