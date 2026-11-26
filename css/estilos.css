@@ -6,15 +6,13 @@ Bordes y detalles decorativos  (#CFC9E9)
 Texto (#171324) 
 Elementos interactivos (#7662B0) 
 */
-
-
-
 /* ESTILOS GENERALES */
 body {
     background-color: #F5F3FF;
     color: #171324;
     font-family: Arial, sans-serif;
 }
+
 /* ENCABEZADO */
 header {
     background-color: #FCFBFF;
@@ -60,6 +58,11 @@ section h2 {
     color: #8001FF;
 }
 
+/* TÍTULOS (mismo violeta en todas las páginas) */
+h1, h2 {
+    color: #8001FF;
+}
+
 /* TARJETAS */
 .card {
     background-color: #FCFBFF;
@@ -80,6 +83,37 @@ section h2 {
 .btn-primary:hover {
     background-color: #7662B0;
     border-color: #7662B0;
+}
+
+/* FORMULARIO */
+.form-label,
+.form-check-label {
+    color: #171324;
+}
+
+.form-control,
+.form-select {
+    background-color: #FCFBFF;
+    border: 1px solid #CFC9E9;
+    color: #171324;
+}
+
+/* Campo seleccionado (por defecto Bootstrap lo pone azul) */
+.form-control:focus,
+.form-select:focus {
+    border-color: #8001FF;
+    box-shadow: 0 0 0 0.25rem rgba(128, 1, 255, 0.25);
+}
+
+/* Casillas tildadas (por defecto son azules) */
+.form-check-input:checked {
+    background-color: #8001FF;
+    border-color: #8001FF;
+}
+
+.form-check-input:focus {
+    border-color: #8001FF;
+    box-shadow: 0 0 0 0.25rem rgba(128, 1, 255, 0.25);
 }
 
 /* PIE DE PÁGINA */
