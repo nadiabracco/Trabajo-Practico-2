@@ -106,88 +106,182 @@ h1, h2 {
     border-color: #7662B0;
 }
 
-/* FORMULARIO */
-.form-label,
-.form-check-label {
-    color: #171324;
+/* ================================================
+   FORMULARIO COMO "FICHA" DE ARCHIVO
+   ================================================ */
+
+/* ---------- Fondo oscuro, como la portada: la ficha es una hoja sobre la mesa ---------- */
+.pagina-contacto {
+    background-color: #171324;
 }
 
-.form-control,
-.form-select {
-    background-color: #FCFBFF;
+.pagina-contacto section {
+    color: #F5F3FF;
+}
+
+.pagina-contacto h1 {
+    color: #FFFFFF;
+}
+
+.pagina-contacto footer {
+    color: #CFC9E9;
+    border-top: 1px solid #3A3150;
+}
+
+/* ---------- La ficha: papel crema con borde de catálogo ---------- */
+#form-newsletter {
+    position: relative;
+    margin-top: 2.5rem;
+    padding: 2.5rem 2rem 2rem;
+    background-color: #FDFBF5;
+    color: #171324;
     border: 1px solid #CFC9E9;
-    color: #171324;
+    border-radius: 4px;
+    box-shadow: 8px 8px 0 rgba(128, 1, 255, 0.35); /* sombra dura, como un recorte pegado */
+    font-family: "Courier New", Courier, monospace; /* tipografía de máquina de escribir */
+    counter-reset: campo; /* para numerar los campos 01, 02, 03... */
 }
 
-/* CAMPO SELECCIONADO */
-.form-control:focus,
-.form-select:focus {
-    border-color: #8001FF;
-    box-shadow: 0 0 0 0.25rem rgba(128, 1, 255, 0.25);
-}
-
-/* CASILLAS TILDADAS */
-.form-check-input:checked {
-    background-color: #8001FF;
-    border-color: #8001FF;
-}
-
-.form-check-input:focus {
-    border-color: #8001FF;
-    box-shadow: 0 0 0 0.25rem rgba(128, 1, 255, 0.25);
-}
-
-/* PIE DE PÁGINA */
-footer {
-    border-top: 1px solid #CFC9E9;
-}
-
-footer a {
-    color: #8001FF;
-    text-decoration: none;
-}
-
-footer a:hover {
+/* Pestaña de carpeta con el número de ficha */
+#form-newsletter::before {
+    content: "FICHA Nº 001 · SUSCRIPCIÓN";
+    position: absolute;
+    top: -32px;
+    left: 24px;
+    padding: 6px 16px;
+    background-color: #FDFBF5;
+    border: 1px solid #CFC9E9;
+    border-bottom: none;
+    border-radius: 6px 6px 0 0;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
     color: #7662B0;
 }
 
-
-/* ADAPTACIÓN DE BIENVENIDA PARA CELULARES */
-@media (max-width: 767px) {
-
-    /* Ocultar el collage */
-    .bienvenida-imagen {
-        display: none;
-    }
-
-    /* Sección de bienvenida */
-    .bienvenida {
-        min-height: auto;
-        padding: 60px 24px;
-        background-color: #171324;
-    }
-
-    /* Texto */
-    .bienvenida-texto {
-        position: static;
-        transform: none;
-        width: 100%;
-        padding: 0;
-        color: #FCFBFF;
-    }
-
-    /* Título */
-    .bienvenida-texto h2 {
-        font-size: 28px;
-        color: #FCFBFF;
-    }
-
-    /* Párrafos */
-    .bienvenida-texto p {
-        font-size: 15px;
-    }
-
+/* ---------- Etiquetas numeradas, en mayúsculas ---------- */
+#form-newsletter .form-label {
+    counter-increment: campo;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #171324;
 }
+
+#form-newsletter .form-label::before {
+    content: counter(campo, decimal-leading-zero) " / ";
+    color: #8001FF;
+}
+
+/* ---------- Campos como renglones para completar a máquina ---------- */
+.form-control,
+.form-select {
+    background-color: transparent;
+    border-style: dashed;
+    border-width: 0 0 2px 0; /* solo línea inferior */
+    border-color: #7662B0;
+    border-radius: 0;
+    padding: 0.6rem 0.25rem;
+    font-family: "Courier New", Courier, monospace;
+    color: #171324;
+}
+
+.form-control:focus,
+.form-select:focus {
+    background-color: rgba(128, 1, 255, 0.06);
+    border-color: #8001FF;
+    box-shadow: none;
+}
+
+/* ---------- Casillas cuadradas, como un formulario en papel ---------- */
+.form-check-input {
+    border-radius: 0;
+    border: 2px solid #171324;
+    cursor: pointer;
+}
+
+.form-check-label {
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.form-check-label:hover {
+    color: #8001FF;
+}
+
+/* ---------- Botón tipo sello ---------- */
+#form-newsletter .btn-primary {
+    padding: 0.7rem 2rem;
+    border-radius: 0;
+    font-family: "Courier New", Courier, monospace;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* ---------- Confirmación: sello de "archivado" ---------- */
+.alert-success {
+    background-color: transparent;
+    border: 3px double #8001FF;
+    border-radius: 4px;
+    color: #FFFFFF;
+    font-family: "Courier New", Courier, monospace;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    transform: rotate(-1.5deg);
+}
+
+/* ---------- Estados de validación (los agrega y saca el JavaScript) ---------- */
+/* Solo cambian el color del borde, para no romper el estilo de "renglón" */
+.form-control.valido,
+.form-select.valido {
+    border-color: green;
+}
+
+.form-control.invalido,
+.form-select.invalido {
+    border-color: red;
+}
+
+.form-check-input.invalido {
+    border-color: red;
+}
+
+/* ---------- Mensajes de error ---------- */
+.mensaje-error {
+    color: red;
+    font-size: 0.9rem;
+}
+
+/* Este error no está pegado a un input, así que se muestra a mano con la clase "visible" */
+#error-intereses {
+    display: none;
+    color: red;
+}
+
+#error-intereses.visible {
+    display: block;
+}
+
+/* ---------- Ocultar elementos (mensaje de éxito) ---------- */
+.oculto {
+    display: none;
+}
+
+/* ---------- Celulares (siempre al final) ---------- */
+@media (max-width: 576px) {
+    #form-newsletter {
+        padding: 2rem 1.25rem 1.5rem;
+        box-shadow: 5px 5px 0 rgba(128, 1, 255, 0.35);
+    }
+
+    #form-newsletter .btn-primary {
+        width: 100%;
+    }
+}
+
 
 /* =================================
    PÁGINA DE PERSONAJES
