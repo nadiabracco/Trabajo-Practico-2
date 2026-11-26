@@ -9,30 +9,32 @@ const checksIntereses = document.querySelectorAll('input[name="intereses"]');
 const campoAcepto = document.getElementById('acepto');
 
 // ---------- Expresiones regulares ----------
-// Nombre: entre 2 y 50 caracteres; letras (con tildes y ñ), espacios, apóstrofe y guion.
 const regexNombre = /^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ' -]{2,50}$/;
-// Correo: algo@dominio.ext (no comprueba que la casilla exista, solo el formato).
 const regexEmail = /^[\w.+-]+@[\w-]+(\.[\w-]+)+$/;
 
-// ---------- Normalizar: llevar el dato a un formato esperado ----------
+// ---------- Normalizar ----------
 function normalizarNombre(texto) {
-  return texto.trim().replace(/\s+/g, ' '); // saca espacios de los extremos y unifica los del medio
+  return texto.trim().replace(/\s+/g, ' ');
 }
 function normalizarEmail(texto) {
   return texto.trim().toLowerCase();
 }
 
 // ---------- Mostrar u ocultar errores ----------
-// Los campos de texto usan las clases is-valid / is-invalid de Bootstrap.
 function marcarCampo(campo, error, idError) {
-  document.getElementById(idError).textContent = error;
-  campo.classList.toggle('is-invalid', error !== '');
-  campo.classList.toggle('is-valid', error === '');
-  campo.setAttribute('aria-invalid', error !== '');
-  return error === '';
+  document.getElementById(idError).innerText = error;
+  if (error !== '') {
+    campo.classList.add('invalido');
+    campo.classList.remove('valido');
+    return false;
+  } else {
+    campo.classList.add('valido');
+    campo.classList.remove('invalido');
+    return true;
+  }
 }
 
-// ---------- Validaciones de cada campo (devuelven true si es válido) ----------
+// ---------- Validaciones ----------
 function validarNombre() {
   const valor = normalizarNombre(campoNombre.value);
   let error = '';
@@ -51,57 +53,83 @@ function validarEmail() {
 }
 
 function validarIntereses() {
-  const algunoElegido = [...checksIntereses].some((check) => check.checked);
+  let algunoElegido = false;
+  checksIntereses.forEach(function (check) {
+    if (check.checked) {
+      algunoElegido = true;
+    }
+  });
+
   const contenedor = document.getElementById('error-intereses');
-  contenedor.textContent = algunoElegido ? '' : 'Elegí al menos un tema para recibir novedades.';
-  contenedor.classList.toggle('d-block', !algunoElegido); // este error no está junto a un input, se muestra a mano
-  checksIntereses.forEach((check) => check.classList.toggle('is-invalid', !algunoElegido));
+  if (algunoElegido) {
+    contenedor.innerText = '';
+    contenedor.classList.remove('visible');
+  } else {
+    contenedor.innerText = 'Elegí al menos un tema para recibir novedades.';
+    contenedor.classList.add('visible');
+  }
+
+  checksIntereses.forEach(function (check) {
+    if (algunoElegido) check.classList.remove('invalido');
+    else check.classList.add('invalido');
+  });
   return algunoElegido;
 }
 
 function validarAcepto() {
-  const error = campoAcepto.checked ? '' : 'Tenés que aceptar para poder suscribirte.';
-  document.getElementById('error-acepto').textContent = error;
-  campoAcepto.classList.toggle('is-invalid', error !== '');
-  campoAcepto.setAttribute('aria-invalid', error !== '');
-  return error === '';
+  const errorAcepto = document.getElementById('error-acepto');
+  if (campoAcepto.checked) {
+    errorAcepto.innerText = '';
+    campoAcepto.classList.remove('invalido');
+    return true;
+  } else {
+    errorAcepto.innerText = 'Tenés que aceptar para poder suscribirte.';
+    campoAcepto.classList.add('invalido');
+    return false;
+  }
 }
 
 // ---------- Eventos ----------
-// Al salir del campo (change) se valida; si ya tenía error, se revalida mientras escribe (input).
 campoNombre.addEventListener('change', validarNombre);
-campoNombre.addEventListener('input', () => { if (campoNombre.classList.contains('is-invalid')) validarNombre(); });
+campoNombre.addEventListener('input', function () {
+  if (campoNombre.classList.contains('invalido')) validarNombre();
+});
 
 campoEmail.addEventListener('change', validarEmail);
-campoEmail.addEventListener('input', () => { if (campoEmail.classList.contains('is-invalid')) validarEmail(); });
+campoEmail.addEventListener('input', function () {
+  if (campoEmail.classList.contains('invalido')) validarEmail();
+});
 
-checksIntereses.forEach((check) => check.addEventListener('change', validarIntereses));
+checksIntereses.forEach(function (check) {
+  check.addEventListener('change', validarIntereses);
+});
 campoAcepto.addEventListener('change', validarAcepto);
 
-formulario.addEventListener('submit', (evento) => {
-  evento.preventDefault(); // evita el envío automático para validar primero
-  exito.classList.add('d-none');
+formulario.addEventListener('submit', function (evento) {
+  evento.preventDefault();
+  exito.classList.add('oculto');
 
-  // Se ejecutan todas (sin cortar en la primera) para mostrar todos los errores juntos
-  const resultados = [validarNombre(), validarEmail(), validarIntereses(), validarAcepto()];
+  let hayErrores = false;
+  if (!validarNombre()) hayErrores = true;
+  if (!validarEmail()) hayErrores = true;
+  if (!validarIntereses()) hayErrores = true;
+  if (!validarAcepto()) hayErrores = true;
 
-  if (resultados.includes(false)) {
-    // Lleva el foco al primer campo con error
-    const primerError = formulario.querySelector('.is-invalid');
-    if (primerError) primerError.focus();
-    return;
-  }
+  if (hayErrores) return;
 
-  // Datos ya normalizados
   const nombre = normalizarNombre(campoNombre.value);
-  const temas = [...checksIntereses].filter((c) => c.checked).map((c) => c.value);
+  const temas = [];
+  checksIntereses.forEach(function (check) {
+    if (check.checked) temas.push(check.value);
+  });
 
-  // El sitio es estático (GitHub Pages): no hay servidor que reciba los datos.
-  // Acá se simula el envío mostrando una confirmación.
-  exito.textContent = `¡Gracias, ${nombre}! Te suscribiste para recibir novedades sobre: ${temas.join(', ')}.`;
-  exito.classList.remove('d-none');
+  // El sitio es estático: no hay servidor, se simula el envío con una confirmación.
+  exito.innerText = '¡Gracias, ' + nombre + '! Te suscribiste para recibir novedades sobre: ' + temas.join(', ') + '.';
+  exito.classList.remove('oculto');
 
   formulario.reset();
-  formulario.querySelectorAll('.is-valid, .is-invalid').forEach((el) => el.classList.remove('is-valid', 'is-invalid'));
-  document.getElementById('error-intereses').classList.remove('d-block');
+  formulario.querySelectorAll('.valido, .invalido').forEach(function (el) {
+    el.classList.remove('valido', 'invalido');
+  });
+  document.getElementById('error-intereses').classList.remove('visible');
 });

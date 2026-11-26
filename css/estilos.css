@@ -127,7 +127,12 @@ h1, h2 {
     color: #CFC9E9;
     border-top: 1px solid #3A3150;
 }
-
+/* ---------- Contenedor centrado ---------- */
+.contenedor-ficha {
+    max-width: 600px;
+    margin: 0 auto;      /* centra el bloque horizontalmente */
+    padding: 0 1rem;     /* margen a los costados en pantallas chicas */
+}
 /* ---------- La ficha: papel crema con borde de catálogo ---------- */
 #form-newsletter {
     position: relative;
