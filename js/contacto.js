@@ -1,135 +1,136 @@
-// Validación del formulario de newsletter con JavaScript vainilla y expresiones regulares.
 
-const formulario = document.getElementById('form-newsletter');
-const exito = document.getElementById('exito');
-
-const campoNombre = document.getElementById('nombre');
-const campoEmail = document.getElementById('email');
-const checksIntereses = document.querySelectorAll('input[name="intereses"]');
-const campoAcepto = document.getElementById('acepto');
-
-// ---------- Expresiones regulares ----------
-const regexNombre = /^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ' -]{2,50}$/;
-const regexEmail = /^[\w.+-]+@[\w-]+(\.[\w-]+)+$/;
-
-// ---------- Normalizar ----------
-function normalizarNombre(texto) {
-  return texto.trim().replace(/\s+/g, ' ');
-}
-function normalizarEmail(texto) {
-  return texto.trim().toLowerCase();
-}
-
-// ---------- Mostrar u ocultar errores ----------
-function marcarCampo(campo, error, idError) {
-  document.getElementById(idError).innerText = error;
-  if (error !== '') {
-    campo.classList.add('invalido');
-    campo.classList.remove('valido');
-    return false;
-  } else {
-    campo.classList.add('valido');
-    campo.classList.remove('invalido');
-    return true;
+// js/contacto.js — validación del formulario de contacto
+ 
+const form = document.getElementById("form-contacto");
+ 
+const COLOR_NORMAL = "#d9c2ff";
+const COLOR_ERROR = "#c0152f";
+ 
+// Muestra el mensaje de error de un campo (y pinta el borde si el campo tiene)
+function mostrarError(idError, texto, campo) {
+  const error = document.getElementById(idError);
+  error.textContent = texto;
+  error.style.display = "block";
+  if (campo) {
+    campo.style.borderColor = COLOR_ERROR;
   }
 }
-
-// ---------- Validaciones ----------
+ 
+// Oculta el mensaje de error y deja el borde como estaba
+function limpiarError(idError, campo) {
+  const error = document.getElementById(idError);
+  error.textContent = "";
+  error.style.display = "none";
+  if (campo) {
+    campo.style.borderColor = COLOR_NORMAL;
+  }
+}
+ 
+// Cada función devuelve true si el campo está bien y false si hay error
+ 
 function validarNombre() {
-  const valor = normalizarNombre(campoNombre.value);
-  let error = '';
-  if (valor === '') error = 'Escribí tu nombre.';
-  else if (valor.length < 2) error = 'El nombre debe tener al menos 2 caracteres.';
-  else if (!regexNombre.test(valor)) error = 'El nombre solo puede tener letras y espacios (máximo 50).';
-  return marcarCampo(campoNombre, error, 'error-nombre');
-}
-
-function validarEmail() {
-  const valor = normalizarEmail(campoEmail.value);
-  let error = '';
-  if (valor === '') error = 'Escribí tu correo electrónico.';
-  else if (!regexEmail.test(valor)) error = 'El correo no tiene un formato válido (por ejemplo: nombre@correo.com).';
-  return marcarCampo(campoEmail, error, 'error-email');
-}
-
-function validarIntereses() {
-  let algunoElegido = false;
-  checksIntereses.forEach(function (check) {
-    if (check.checked) {
-      algunoElegido = true;
-    }
-  });
-
-  const contenedor = document.getElementById('error-intereses');
-  if (algunoElegido) {
-    contenedor.innerText = '';
-    contenedor.classList.remove('visible');
-  } else {
-    contenedor.innerText = 'Elegí al menos un tema para recibir novedades.';
-    contenedor.classList.add('visible');
-  }
-
-  checksIntereses.forEach(function (check) {
-    if (algunoElegido) check.classList.remove('invalido');
-    else check.classList.add('invalido');
-  });
-  return algunoElegido;
-}
-
-function validarAcepto() {
-  const errorAcepto = document.getElementById('error-acepto');
-  if (campoAcepto.checked) {
-    errorAcepto.innerText = '';
-    campoAcepto.classList.remove('invalido');
-    return true;
-  } else {
-    errorAcepto.innerText = 'Tenés que aceptar para poder suscribirte.';
-    campoAcepto.classList.add('invalido');
+  const campo = document.getElementById("nombre");
+  const valor = campo.value.trim();
+ 
+  if (valor.length < 2) {
+    mostrarError("error-nombre", "Ingresá un nombre o alias de al menos 2 caracteres.", campo);
     return false;
   }
+  limpiarError("error-nombre", campo);
+  return true;
 }
-
-// ---------- Eventos ----------
-campoNombre.addEventListener('change', validarNombre);
-campoNombre.addEventListener('input', function () {
-  if (campoNombre.classList.contains('invalido')) validarNombre();
-});
-
-campoEmail.addEventListener('change', validarEmail);
-campoEmail.addEventListener('input', function () {
-  if (campoEmail.classList.contains('invalido')) validarEmail();
-});
-
-checksIntereses.forEach(function (check) {
-  check.addEventListener('change', validarIntereses);
-});
-campoAcepto.addEventListener('change', validarAcepto);
-
-formulario.addEventListener('submit', function (evento) {
+ 
+function validarEmail() {
+  const campo = document.getElementById("email");
+  const valor = campo.value.trim();
+ 
+  if (valor === "") {
+    mostrarError("error-email", "Ingresá tu correo electrónico.", campo);
+    return false;
+  }
+ 
+  // Revisa que haya algo antes del @, y un punto después del @ que no sea el último caracter
+  const posicionArroba = valor.indexOf("@");
+  const posicionPunto = valor.lastIndexOf(".");
+ 
+  if (posicionArroba < 1 || posicionPunto < posicionArroba + 2 || posicionPunto === valor.length - 1) {
+    mostrarError("error-email", "El correo no es válido. Ejemplo: nombre@dominio.com", campo);
+    return false;
+  }
+  limpiarError("error-email", campo);
+  return true;
+}
+ 
+function validarTema() {
+  const campo = document.getElementById("tema");
+ 
+  if (campo.value === "") {
+    mostrarError("error-tema", "Elegí sobre qué querés escribir.", campo);
+    return false;
+  }
+  limpiarError("error-tema", campo);
+  return true;
+}
+ 
+function validarSeccion() {
+  const opciones = document.getElementsByName("seccion");
+  let hayUnaElegida = false;
+ 
+  for (let i = 0; i < opciones.length; i++) {
+    if (opciones[i].checked) {
+      hayUnaElegida = true;
+    }
+  }
+ 
+  if (!hayUnaElegida) {
+    mostrarError("error-seccion", "Elegí la sección que más exploraste.", null);
+    return false;
+  }
+  limpiarError("error-seccion", null);
+  return true;
+}
+ 
+function validarMensaje() {
+  const campo = document.getElementById("mensaje");
+  const valor = campo.value.trim();
+ 
+  if (valor.length < 10) {
+    mostrarError("error-mensaje", "El mensaje debe tener al menos 10 caracteres.", campo);
+    return false;
+  }
+  limpiarError("error-mensaje", campo);
+  return true;
+}
+ 
+function validarAcepto() {
+  const campo = document.getElementById("acepto");
+ 
+  if (!campo.checked) {
+    mostrarError("error-acepto", "Tenés que aceptar para poder enviar el mensaje.", null);
+    return false;
+  }
+  limpiarError("error-acepto", null);
+  return true;
+}
+ 
+// Al enviar: se validan todos los campos juntos para mostrar todos los errores a la vez
+form.addEventListener("submit", function (evento) {
   evento.preventDefault();
-  exito.classList.add('oculto');
-
-  let hayErrores = false;
-  if (!validarNombre()) hayErrores = true;
-  if (!validarEmail()) hayErrores = true;
-  if (!validarIntereses()) hayErrores = true;
-  if (!validarAcepto()) hayErrores = true;
-
-  if (hayErrores) return;
-
-  const nombre = normalizarNombre(campoNombre.value);
-  const temas = [];
-  checksIntereses.forEach(function (check) {
-    if (check.checked) temas.push(check.value);
-  });
-
-  // El sitio es estático: no hay servidor, se simula el envío con una confirmación.
-  exito.innerText = '¡Gracias, ' + nombre + '! Te suscribiste para recibir novedades sobre: ' + temas.join(', ') + '.';
-  exito.classList.remove('oculto');
-
-  formulario.reset();
-  formulario.querySelectorAll('.valido, .invalido').forEach(function (el) {
-    el.classList.remove('valido', 'invalido');
-  });
-  document.getElementById('error-intereses').classList.remove('visible');
+ 
+  const exito = document.getElementById("mensaje-exito");
+  exito.style.display = "none";
+ 
+  const nombreOk = validarNombre();
+  const emailOk = validarEmail();
+  const temaOk = validarTema();
+  const seccionOk = validarSeccion();
+  const mensajeOk = validarMensaje();
+  const aceptoOk = validarAcepto();
+ 
+  if (nombreOk && emailOk && temaOk && seccionOk && mensajeOk && aceptoOk) {
+    // Acá iría el envío real. Para el TP se simula:
+    exito.style.display = "block";
+    form.reset();
+  }
 });
+ 

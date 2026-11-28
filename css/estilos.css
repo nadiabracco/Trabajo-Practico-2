@@ -126,133 +126,93 @@ footer a:hover {
    FORMULARIO COMO "FICHA" DE ARCHIVO
    ================================================ */
 
-/* ---------- Fondo oscuro, como la portada: la ficha es una hoja sobre la mesa ---------- */
-.pagina-contacto {
-    background-color: #171324;
+/* ---------- Contenedor ---------- */
+#contacto {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 1rem;
 }
 
-.pagina-contacto section {
-    color: #F5F3FF;
-}
-
-.pagina-contacto h1 {
-    color: #FFFFFF;
-}
-
-
-/* ---------- Contenedor centrado ---------- */
-.contenedor-ficha {
-    max-width: 600px;
-    margin: 0 auto;      /* centra el bloque horizontalmente */
-    padding: 0 1rem;     /* margen a los costados en pantallas chicas */
-}
-/* ---------- La ficha: papel crema con borde de catálogo ---------- */
-#form-newsletter {
-    position: relative;
-    margin-top: 2.5rem;
-    padding: 2.5rem 2rem 2rem;
-    background-color: #FDFBF5;
+/* ---------- La tarjeta: blanca, borde fino lavanda, sin sombras ---------- */
+#form-contacto {
+    width: 100%;
+    margin-top: 2rem;
+    padding: 2rem;
+    background-color: #FFFFFF;
     color: #171324;
     border: 1px solid #CFC9E9;
-    border-radius: 4px;
-    box-shadow: 8px 8px 0 rgba(128, 1, 255, 0.35); /* sombra dura, como un recorte pegado */
-    font-family: "Courier New", Courier, monospace; /* tipografía de máquina de escribir */
     counter-reset: campo; /* para numerar los campos 01, 02, 03... */
 }
 
-/* Pestaña de carpeta con el número de ficha */
-#form-newsletter::before {
-    content: "FICHA Nº 001 · SUSCRIPCIÓN";
-    position: absolute;
-    top: -32px;
-    left: 24px;
-    padding: 6px 16px;
-    background-color: #FDFBF5;
-    border: 1px solid #CFC9E9;
-    border-bottom: none;
-    border-radius: 6px 6px 0 0;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    color: #7662B0;
-}
-
-/* ---------- Etiquetas numeradas, en mayúsculas ---------- */
-#form-newsletter .form-label {
+/* ---------- Etiquetas numeradas, en violeta (como "01 / LOS PRIMEROS ACCIDENTES") ---------- */
+#form-contacto .form-label {
     counter-increment: campo;
     font-size: 0.8rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: #171324;
-}
-
-#form-newsletter .form-label::before {
-    content: counter(campo, decimal-leading-zero) " / ";
     color: #8001FF;
 }
 
-/* ---------- Campos como renglones para completar a máquina ---------- */
+#form-contacto .form-label::before {
+    content: counter(campo, decimal-leading-zero) " / ";
+}
+
+/* ---------- Campos: caja con borde fino ---------- */
 .form-control,
 .form-select {
-    background-color: transparent;
-    border-style: dashed;
-    border-width: 0 0 2px 0; /* solo línea inferior */
-    border-color: #7662B0;
+    background-color: #FFFFFF;
+    border: 1px solid #CFC9E9;
     border-radius: 0;
-    padding: 0.6rem 0.25rem;
-    font-family: "Courier New", Courier, monospace;
+    padding: 0.6rem 0.75rem;
     color: #171324;
 }
 
 .form-control:focus,
 .form-select:focus {
-    background-color: rgba(128, 1, 255, 0.06);
     border-color: #8001FF;
     box-shadow: none;
 }
 
-/* ---------- Casillas cuadradas, como un formulario en papel ---------- */
+/* ---------- Radios y checkbox ---------- */
 .form-check-input {
-    border-radius: 0;
-    border: 2px solid #171324;
-    cursor: pointer;
+    border: 1px solid #8001FF;
+}
+
+.form-check-input:checked {
+    background-color: #8001FF;
+    border-color: #8001FF;
+}
+
+.form-check-input:focus {
+    box-shadow: none;
 }
 
 .form-check-label {
-    font-size: 0.9rem;
-    cursor: pointer;
+    font-size: 0.95rem;
 }
 
-.form-check-label:hover {
-    color: #8001FF;
-}
-
-/* ---------- Botón tipo sello ---------- */
-#form-newsletter .btn-primary {
+/* ---------- Botón ---------- */
+#form-contacto .btn-primary {
+    background-color: #8001FF;
+    border-color: #8001FF;
     padding: 0.7rem 2rem;
-    border-radius: 0;
-    font-family: "Courier New", Courier, monospace;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
 }
 
-/* ---------- Confirmación: sello de "archivado" ---------- */
+#form-contacto .btn-primary:hover {
+    background-color: #6300C7;
+    border-color: #6300C7;
+}
+
+/* ---------- Mensaje de éxito: misma tarjeta, con borde violeta ---------- */
 .alert-success {
-    background-color: transparent;
-    border: 3px double #8001FF;
-    border-radius: 4px;
-    color: #FFFFFF;
-    font-family: "Courier New", Courier, monospace;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    transform: rotate(-1.5deg);
+    background-color: #FFFFFF;
+    border: 1px solid #8001FF;
+    border-radius: 0;
+    color: #171324;
 }
 
 /* ---------- Estados de validación (los agrega y saca el JavaScript) ---------- */
-/* Solo cambian el color del borde, para no romper el estilo de "renglón" */
 .form-control.valido,
 .form-select.valido {
     border-color: green;
@@ -267,43 +227,21 @@ footer a:hover {
     border-color: red;
 }
 
-/* ---------- Mensajes de error ---------- */
+/* ---------- Mensajes de error: ocultos hasta que el JS agrega la clase "visible" ---------- */
 .mensaje-error {
-    color: red;
-    font-size: 0.9rem;
-}
-
-/* Este error no está pegado a un input, así que se muestra a mano con la clase "visible" */
-#error-intereses {
     display: none;
     color: red;
+    font-size: 0.9rem;
+    margin: 4px 0 0 0;
 }
 
-#error-intereses.visible {
+.mensaje-error.visible {
     display: block;
 }
 
 /* ---------- Ocultar elementos (mensaje de éxito) ---------- */
 .oculto {
     display: none;
-}
-
-/* ESPACIO ENTRE EL FORMULARIO Y EL FOOTER */
-
-.contacto {
-    padding-bottom: 40px;
-}
-
-/* ---------- Celulares (siempre al final) ---------- */
-@media (max-width: 576px) {
-    #form-newsletter {
-        padding: 2rem 1.25rem 1.5rem;
-        box-shadow: 5px 5px 0 rgba(128, 1, 255, 0.35);
-    }
-
-    #form-newsletter .btn-primary {
-        width: 100%;
-    }
 }
 
 
@@ -401,5 +339,132 @@ footer a:hover {
 @media (max-width: 767px) {
     .historia-imagen {
         height: 280px;
+    }
+}
+/* ================
+   CRÉDITOS — 
+ ===================*/
+
+/* ---------- Contenedor de la página ---------- */
+.contenedor-pagina {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem 3rem;
+    color: #171324;
+}
+
+.contenedor-pagina h1 {
+    color: #8001FF;
+    font-weight: 400;
+}
+
+/* ---------- Autoras: tarjeta con foto chica y datos al costado ---------- */
+.lista-autores {
+    margin-top: 2.5rem;
+}
+
+.archivo-autor {
+    display: flex;
+    align-items: center;      /* foto y texto centrados verticalmente */
+    gap: 2.5rem;
+    padding: 2rem;
+    background-color: #FDFCFF;
+    border: 1px solid #CFC9E9;
+    margin-bottom: 2.5rem;
+}
+
+/* La segunda autora lleva la foto a la derecha (se agrega la clase "invertido" en el HTML) */
+.archivo-autor.invertido {
+    flex-direction: row-reverse;
+}
+
+/* Foto chica, vertical, con borde fino */
+.archivo-foto {
+    width: 220px;
+    height: 275px;
+    flex-shrink: 0;           /* no se achica si el texto es largo */
+    object-fit: cover;        /* recorta la foto para llenar el espacio sin deformarla */
+    object-position: center 20%;
+    border: 1px solid #CFC9E9;
+}
+
+.archivo-texto {
+    flex: 1;
+}
+
+.archivo-etiqueta {
+    margin-bottom: 0.5rem;
+    color: #171324;
+}
+
+.archivo-nombre {
+    margin-bottom: 1rem;
+    color: #8001FF;
+    font-weight: 400;
+}
+
+.archivo-texto p {
+    margin-bottom: 0.9rem;
+    line-height: 1.6;
+}
+
+/* ---------- Fichas (proceso y fuentes): tarjeta de texto ---------- */
+.ficha {
+    margin-top: 2.5rem;
+    padding: 2rem;
+    background-color: #FDFCFF;
+    border: 1px solid #CFC9E9;
+}
+
+/* El texto de data-ficha se muestra arriba, como las etiquetas "01 / ..." de Historia */
+.ficha::before {
+    content: attr(data-ficha);
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #8001FF;
+}
+
+.titulo-ficha {
+    margin-bottom: 1rem;
+    color: #8001FF;
+    font-weight: 400;
+}
+
+.texto-proyecto {
+    max-width: 760px;
+}
+
+.texto-proyecto p,
+.texto-proyecto li {
+    line-height: 1.7;
+}
+
+.texto-proyecto ul {
+    padding-left: 1.2rem;
+}
+
+.texto-proyecto li {
+    margin-bottom: 0.4rem;
+}
+
+/* ---------- Celular: la foto pasa arriba (centrada) y el texto abajo ---------- */
+@media (max-width: 768px) {
+    .archivo-autor,
+    .archivo-autor.invertido {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1.5rem;
+    }
+
+    .archivo-texto {
+        width: 100%;
+    }
+
+    .ficha {
+        padding: 1.5rem;
     }
 }
