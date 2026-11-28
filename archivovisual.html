@@ -1,0 +1,351 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gorillaz | Archivo visual</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- VenoBox -->
+    <link href="https://cdn.jsdelivr.net/npm/venobox@2.1.8/dist/venobox.min.css" rel="stylesheet">
+
+    <!-- Estilos generales -->
+    <link rel="stylesheet" href="css/estilos.css">
+
+    <!-- Estilos de esta página -->
+    <link rel="stylesheet" href="css/archivovisual.css">
+</head>
+
+<body>
+
+    <!-- ENCABEZADO -->
+    <header>
+
+        <nav class="navbar navbar-expand-lg">
+
+            <div class="container py-4">
+
+                <a href="index.html" class="navbar-brand">
+                    <img src="imagenes/logo.png" alt="Logo de Gorillaz" class="logo">
+                </a>
+
+                <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#menuPrincipal"
+                    aria-controls="menuPrincipal"
+                    aria-expanded="false"
+                    aria-label="Abrir menú">
+
+                    <span class="navbar-toggler-icon"></span>
+
+                </button>
+
+                <div class="collapse navbar-collapse" id="menuPrincipal">
+
+                    <ul class="navbar-nav ms-auto">
+
+                        <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="personajes.html">Personajes</a></li>
+                        <li class="nav-item"><a class="nav-link" href="historia1.html">Historia 1</a></li>
+                        <li class="nav-item"><a class="nav-link" href="historia2.html">Historia 2</a></li>
+                        <li class="nav-item"><a class="nav-link" href="historia3.html">Historia 3</a></li>
+                        <li class="nav-item"><a class="nav-link" href="musica.html">Música</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="archivovisual.html">
+                                Archivo visual
+                            </a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                        <li class="nav-item"><a class="nav-link" href="creditos.html">Créditos</a></li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="container">
+
+        <!-- INTRODUCCION -->
+
+        <section class="av-intro">
+
+            <div class="av-intro-codigo">
+                <span>ARCHIVO VISUAL / 007</span>
+                <span>1998 — ACTUALIDAD</span>
+            </div>
+
+            <p class="av-etiqueta">COLECCIÓN / MATERIAL VISUAL</p>
+
+            <h1 class="av-titulo">Imagen y animación<span>.</span></h1>
+
+            <p class="av-texto">
+                El universo de Gorillaz se construye tanto con música como con imagen.
+                Acá reunimos los videoclips y la animación de la banda, y el diseño
+                y la ilustración que le dan identidad. Elegí una categoría y hacé
+                clic en una pieza para verla en grande.
+            </p>
+
+            <div class="av-nota">
+                <span>EXPEDIENTE 007-A</span>
+                <span>REGISTRO DE PIEZAS GRÁFICAS Y AUDIOVISUALES</span>
+            </div>
+
+        </section>
+
+
+        <!-- FILTROS -->
+
+        <section class="av-filtros" aria-label="Filtrar por categoría">
+
+            <p class="av-filtros-titulo">EXPLORAR ARCHIVO /</p>
+
+            <button class="btn av-boton activo" type="button" data-filtro="todos">
+                00 / Todos
+            </button>
+
+            <button class="btn av-boton" type="button" data-filtro="videoclips">
+                01 / Videoclips y animación
+            </button>
+
+            <button class="btn av-boton" type="button" data-filtro="diseno">
+                02 / Diseño e ilustración
+            </button>
+
+        </section>
+
+
+        <!-- GALERIA -->
+
+        <section class="row g-4 av-galeria" id="galeria"
+            aria-label="Galería de piezas">
+
+
+            <!-- PIEZA 001 -->
+
+            <div class="col-12 col-md-6 col-lg-7 av-item"
+                data-categoria="videoclips">
+
+                <a class="venobox av-ficha av-ficha-grande"
+                    data-gall="archivo"
+                    data-vbtype="video"
+                    href="https://www.youtube.com/watch?v=REEMPLAZAR_ID"
+                    title="Feel Good Inc.">
+
+                    <div class="av-imagen-contenedor">
+
+                        <img src="imagenes/video-feel-good.jpg"
+                            alt="Fotograma del videoclip Feel Good Inc."
+                            loading="lazy">
+
+                        <span class="av-numero">001</span>
+                        <span class="av-tipo">VIDEO / 2005</span>
+                        <span class="av-marca">PLAY +</span>
+
+                    </div>
+
+                    <div class="av-ficha-texto">
+
+                        <p class="av-categoria">ARCHIVO AUDIOVISUAL / PIEZA 001</p>
+
+                        <h2>Feel Good Inc.</h2>
+
+                        <p>
+                            Videoclip animado de 2005, perteneciente al álbum
+                            Demon Days.
+                        </p>
+
+                        <span class="av-coordenada">REF. FG-2005 / MOVIMIENTO</span>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+
+            <!-- PIEZA 002 -->
+
+            <div class="col-12 col-md-6 col-lg-5 av-item"
+                data-categoria="diseno">
+
+                <a class="venobox av-ficha"
+                    data-gall="archivo"
+                    href="imagenes/album-demon-days.jpg"
+                    title="Demon Days">
+
+                    <div class="av-imagen-contenedor">
+
+                        <img src="imagenes/album-demon-days.jpg"
+                            alt="Portada del álbum Demon Days"
+                            loading="lazy">
+
+                        <span class="av-numero">002</span>
+                        <span class="av-tipo">DISEÑO / 2005</span>
+                        <span class="av-marca">VER +</span>
+
+                    </div>
+
+                    <div class="av-ficha-texto">
+
+                        <p class="av-categoria">ARCHIVO GRÁFICO / PIEZA 002</p>
+
+                        <h2>Demon Days</h2>
+
+                        <p>
+                            Identidad visual y portada del segundo álbum
+                            de Gorillaz.
+                        </p>
+
+                        <span class="av-coordenada">REF. DD-2005 / PORTADA</span>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+
+            <!-- PIEZA 003 -->
+
+            <div class="col-12 col-md-6 col-lg-5 av-item"
+                data-categoria="videoclips">
+
+                <a class="venobox av-ficha"
+                    data-gall="archivo"
+                    data-vbtype="video"
+                    href="https://www.youtube.com/watch?v=REEMPLAZAR_ID"
+                    title="Clint Eastwood">
+
+                    <div class="av-imagen-contenedor">
+
+                        <img src="imagenes/video-clint-eastwood.jpg"
+                            alt="Fotograma del videoclip Clint Eastwood"
+                            loading="lazy">
+
+                        <span class="av-numero">003</span>
+                        <span class="av-tipo">VIDEO / 2001</span>
+                        <span class="av-marca">PLAY +</span>
+
+                    </div>
+
+                    <div class="av-ficha-texto">
+
+                        <p class="av-categoria">ARCHIVO AUDIOVISUAL / PIEZA 003</p>
+
+                        <h2>Clint Eastwood</h2>
+
+                        <p>
+                            Uno de los primeros videoclips animados de la banda,
+                            publicado en 2001.
+                        </p>
+
+                        <span class="av-coordenada">REF. CE-2001 / ANIMACIÓN</span>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+
+            <!-- PIEZA 004 -->
+
+            <div class="col-12 col-md-6 col-lg-7 av-item"
+                data-categoria="diseno">
+
+                <a class="venobox av-ficha av-ficha-grande"
+                    data-gall="archivo"
+                    href="imagenes/personaje-2d.jpg"
+                    title="2-D">
+
+                    <div class="av-imagen-contenedor">
+
+                        <img src="imagenes/personaje-2d.jpg"
+                            alt="Ilustración del personaje 2-D"
+                            loading="lazy">
+
+                        <span class="av-numero">004</span>
+                        <span class="av-tipo">PERSONAJE / DISEÑO</span>
+                        <span class="av-marca">VER +</span>
+
+                    </div>
+
+                    <div class="av-ficha-texto">
+
+                        <p class="av-categoria">ARCHIVO DE PERSONAJES / PIEZA 004</p>
+
+                        <h2>2-D</h2>
+
+                        <p>
+                            Diseño e ilustración del vocalista de la banda.
+                        </p>
+
+                        <span class="av-coordenada">REF. 2D-001 / PERSONAJE</span>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- MENSAJE DE GALERIA VACIA -->
+
+        <p id="av-vacio" class="av-vacio" hidden>
+            No hay piezas en esta categoría todavía.
+        </p>
+
+
+        <!-- CIERRE DEL ARCHIVO -->
+
+        <section class="av-cierre">
+
+            <span>FIN DEL REGISTRO / 007</span>
+
+            <p>
+                EL ARCHIVO PERMANECE ABIERTO.
+            </p>
+
+            <span>GORILLAZ / MATERIAL VISUAL</span>
+
+        </section>
+
+    </main>
+
+
+    <!-- PIE DE PAGINA -->
+
+    <footer class="container py-4 text-center">
+
+        <p>Proyecto académico — Informática General 2026</p>
+
+        <a href="creditos.html">Créditos</a>
+
+    </footer>
+
+
+    <!-- SCRIPTS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/venobox@2.1.8/dist/venobox.min.js"></script>
+
+    <script src="js/archivovisual.js"></script>
+
+</body>
+</html>
