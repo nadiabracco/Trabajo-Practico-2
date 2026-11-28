@@ -320,7 +320,10 @@ footer a:hover {
 }
 
 
-/* HISTORIA 1 */
+
+/* =================================
+   HISTORIA 1 Y 2
+================================= */
 
 .historia-imagen {
     display: block;
@@ -341,6 +344,73 @@ footer a:hover {
         height: 280px;
     }
 }
+
+/* =================================
+   HISTORIA 2
+================================= */
+
+/* PRESENTACIÓN */
+
+.historia-intro {
+    margin: 45px auto;
+    
+}
+
+.historia-intro h1 {
+    margin-bottom: 16px;
+}
+
+.historia-intro p {
+    line-height: 1.7;
+}
+
+/* BLOQUES DE HISTORIA */
+
+.historia-bloque {
+    margin-bottom: 60px;
+    text-align: left;
+}
+
+/* VIDEO */
+
+.historia-bloque iframe {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    border: 0;
+}
+
+/* CIERRE */
+
+.historia-cierre {
+    max-width: 1200px;
+    margin: 70px auto 30px;
+    padding: 25px 0;
+    border-top: 1px solid #CFC9E9;
+    text-align: left;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 767px) {
+
+    .historia-intro {
+        margin: 30px auto;
+        padding: 0 15px;
+    }
+
+    .historia-bloque {
+        margin-bottom: 40px;
+    }
+
+    .historia-cierre {
+        margin-top: 45px;
+        padding: 20px 15px;
+    }
+}
+
+
 /* ================
    CRÉDITOS — 
  ===================*/
@@ -872,3 +942,4 @@ footer a:hover {
     }
 
 }
+
