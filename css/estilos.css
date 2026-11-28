@@ -1,5 +1,9 @@
 
-/* PALETA DE COLORES
+/* ==========================================
+   PALETA DE COLORES
+========================================== */
+
+/*
 Color principal (#8001FF)
 Fondo (#F5F3FF)
 Surface (#FCFBFF)
@@ -8,7 +12,13 @@ Texto (#171324)
 Elementos interactivos (#7662B0)
 */
 
-/* ESTILOS GENERALES */
+
+/* ==========================================
+   ESTILOS GENERALES
+========================================== */
+
+/* CUERPO */
+
 body {
     background-color: #F5F3FF;
     color: #171324;
@@ -16,18 +26,21 @@ body {
 }
 
 /* ENCABEZADO */
+
 header {
     background-color: #FCFBFF;
     border-bottom: 1px solid #CFC9E9;
 }
 
 /* LOGO */
+
 .logo {
     width: 200px;
     height: auto;
 }
 
 /* ENLACES DEL MENÚ */
+
 .navbar-nav .nav-link {
     color: #171324;
 }
@@ -37,54 +50,31 @@ header {
 }
 
 /* BOTÓN HAMBURGUESA */
+
 .navbar-toggler {
     border-color: #CFC9E9;
 }
 
 /* COLOR DEL ÍCONO HAMBURGUESA */
+
 .navbar-toggler-icon {
     filter: invert(20%) sepia(90%) saturate(6000%) hue-rotate(260deg);
 }
 
-/* SECCIÓN DE BIENVENIDA */
-.bienvenida {
-    position: relative;
-    width: 100%;
-    background-color: #171324;
-}
+/* SECCIONES */
 
-/* IMAGEN DE BIENVENIDA */
-.bienvenida-imagen {
-    display: block;
-    width: 100%;
-    height: auto;
-}
-
-/* TEXTO DE BIENVENIDA */
-.bienvenida-texto {
-    position: absolute;
-    top: 35%;
-    left: 8%;
-    width: 35%;
-    color: #FCFBFF;
-}
-
-/* TÍTULO DE BIENVENIDA */
-.bienvenida-texto h2 {
-    color: #FCFBFF;
-}
-
-/* COLOR GENERAL DE LAS SECCIONES */
 section {
     color: #171324;
 }
 
 /* TÍTULOS */
+
 h1, h2 {
     color: #8001FF;
 }
 
 /* TARJETAS */
+
 .card {
     background-color: #FCFBFF;
     border: 1px solid #CFC9E9;
@@ -96,6 +86,7 @@ h1, h2 {
 }
 
 /* BOTONES */
+
 .btn-primary {
     background-color: #8001FF;
     border-color: #8001FF;
@@ -106,7 +97,7 @@ h1, h2 {
     border-color: #7662B0;
 }
 
-/* FOOTER GENERAL */
+/* FOOTER */
 
 footer.container {
     border-top: 1px solid #CFC9E9;
@@ -121,6 +112,74 @@ footer a {
 footer a:hover {
     color: #7662B0;
 }
+
+
+/* ==========================================
+   PORTADA DE INICIO
+   MOBILE FIRST
+========================================== */
+
+/* ESTILOS BASE: CELULARES */
+
+.bienvenida {
+    position: relative;
+    width: 100%;
+    background-color: #171324;
+    padding: 35px 24px;
+}
+
+.bienvenida-imagen {
+    display: none;
+}
+
+.bienvenida-texto {
+    position: static;
+    width: 100%;
+    color: #FCFBFF;
+}
+
+.bienvenida-texto h2 {
+    color: #FCFBFF;
+    font-size: 28px;
+}
+
+.bienvenida-texto p {
+    font-size: 15px;
+}
+
+
+/* PANTALLAS GRANDES */
+
+@media (min-width: 768px) {
+
+    .bienvenida {
+        padding: 0;
+    }
+
+    .bienvenida-imagen {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .bienvenida-texto {
+        position: absolute;
+        top: 35%;
+        left: 8%;
+        width: 35%;
+    }
+
+    .bienvenida-texto h2 {
+        font-size: 2rem;
+    }
+
+    .bienvenida-texto p {
+        font-size: 16px;
+    }
+
+}
+
+
 
 /* ================================================
    FORMULARIO COMO "FICHA" DE ARCHIVO
@@ -247,9 +306,11 @@ footer a:hover {
 
 /* =================================
    PÁGINA DE PERSONAJES
+   MOBILE FIRST
 ================================= */
 
 /* PRESENTACIÓN */
+
 .personajes-intro {
     max-width: 750px;
 }
@@ -262,7 +323,9 @@ footer a:hover {
     line-height: 1.7;
 }
 
+
 /* FICHAS */
+
 .ficha-personaje {
     max-width: 1200px;
     margin-left: auto;
@@ -272,22 +335,28 @@ footer a:hover {
     overflow: hidden;
 }
 
+
 /* IMÁGENES */
+
+/* Estilos base: celulares */
+
 .personaje-imagen {
     display: block;
     width: 100%;
-    height: 380px;
+    height: 300px;
     object-fit: cover;
 }
 
+
 /* INFORMACIÓN */
+
 .personaje-info {
-    padding: 30px 35px;
+    padding: 24px;
 }
 
 .personaje-info h2 {
     color: #8001FF;
-    font-size: 30px;
+    font-size: 26px;
     margin-bottom: 20px;
 }
 
@@ -302,19 +371,23 @@ footer a:hover {
     color: #171324;
 }
 
-/* CELULARES */
-@media (max-width: 767px) {
+
+/* =================================
+   TABLETS Y ESCRITORIO
+================================= */
+
+@media (min-width: 768px) {
 
     .personaje-imagen {
-        height: 300px;
+        height: 380px;
     }
 
     .personaje-info {
-        padding: 24px;
+        padding: 30px 35px;
     }
 
     .personaje-info h2 {
-        font-size: 26px;
+        font-size: 30px;
     }
 
 }
@@ -323,37 +396,13 @@ footer a:hover {
 
 /* =================================
    HISTORIA 1 Y 2
-================================= */
-
-.historia-imagen {
-    display: block;
-    width: 100%;
-    height: 380px;
-    object-fit: cover;
-}
-
-.historia-etiqueta {
-    color: #8001FF;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 1px;
-}
-
-@media (max-width: 767px) {
-    .historia-imagen {
-        height: 280px;
-    }
-}
-
-/* =================================
-   HISTORIA 2
+   MOBILE FIRST
 ================================= */
 
 /* PRESENTACIÓN */
 
 .historia-intro {
     margin: 45px auto;
-    
 }
 
 .historia-intro h1 {
@@ -364,22 +413,35 @@ footer a:hover {
     line-height: 1.7;
 }
 
+
 /* BLOQUES DE HISTORIA */
 
 .historia-bloque {
-    margin-bottom: 60px;
     text-align: left;
 }
 
-/* VIDEO */
 
-.historia-bloque iframe {
+/* IMÁGENES */
+
+/* Estilos base: celulares */
+
+.historia-imagen {
     display: block;
     width: 100%;
-    aspect-ratio: 16 / 9;
-    height: auto;
-    border: 0;
+    height: 280px;
+    object-fit: cover;
 }
+
+
+/* ETIQUETAS */
+
+.historia-etiqueta {
+    color: #8001FF;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
 
 /* CIERRE */
 
@@ -391,24 +453,33 @@ footer a:hover {
     text-align: left;
 }
 
-/* RESPONSIVE */
+/* =================================
+   HISTORIA 2
+================================= */
 
-@media (max-width: 767px) {
+/* VIDEO */
 
-    .historia-intro {
-        margin: 30px auto;
-        padding: 0 15px;
-    }
-
-    .historia-bloque {
-        margin-bottom: 40px;
-    }
-
-    .historia-cierre {
-        margin-top: 45px;
-        padding: 20px 15px;
-    }
+.historia-bloque iframe {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    border: 0;
 }
+
+
+/* =================================
+   TABLETS Y ESCRITORIO
+================================= */
+
+@media (min-width: 768px) {
+
+    .historia-imagen {
+        height: 380px;
+    }
+
+}
+
 
 
 /* ================
